@@ -1,0 +1,19 @@
+li{
+    list-style: none;
+    margin:10px 0px;
+    background-color:grey;
+    border:solid;
+    color:white;
+    width:30rem;
+    text-decoration: no;
+}
+
+.close{
+    float:right;
+   
+}
+
+li.done{
+    text-decoration: line-through;
+}
+

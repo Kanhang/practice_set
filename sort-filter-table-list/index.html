@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title> sort a html table alphabetically</title> 
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">
+      <table id = 'myTable'>
+        <tr>
+            <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+             <th onclick="sortTable(0)">Name</th>
+             <th onclick="sortTable(1)">Country</th>
+           </tr>
+           <tr>
+             <td>Berglunds snabbkop</td>
+             <td>Sweden</td>
+           </tr>
+           <tr>
+             <td>North/South</td>
+             <td>UK</td>
+           </tr>
+           <tr>
+             <td>Alfreds Futterkiste</td>
+             <td>Germany</td>
+           </tr>
+           <tr>
+             <td>Koniglich Essen</td>
+             <td>Germany</td>
+           </tr>
+           <tr>
+             <td>Magazzini Alimentari Riuniti</td>
+             <td>Italy</td>
+           </tr>
+           <tr>
+             <td>Paris specialites</td>
+             <td>France</td>
+           </tr>
+           <!-- add a row -->
+           <tr>
+               <!-- first column -->
+               <td>dfada</td> 
+               <!-- second column -->
+               <td>dsafa</td>
+           </tr>
+           <tr>
+             <td>Laughing Bacchus Winecellars</td>
+             <td>Canada</td>
+           </tr>
+      </table>
+    </body>
+    <script src= "script.js"></script>
+</html>

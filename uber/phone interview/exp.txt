@@ -1,0 +1,61 @@
+大概就是只能limit个数的task 同时run， 给了 task id， 第二个param是每个task结束后的CB， 所有task完之后call第三个param。要按顺序（注意是inputs的顺序）把结果打出来
+function getNameById(id, callback) {
+  // simulating async request
+  const randomRequestTime = Math.floor(Math.random() * 100) + 200;
+  
+  setTimeout(() => {
+    callback("User" + id)
+  }, randomRequestTime);
+}
+function mapLimit(inputs, limit, iterate‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌eFn, callback) {
+   // implement here
+}
+mapLimit([1,2,3,4,5], 2, getNameById, (allResults) => {
+  console.log(allResults) // ["User1", "User2", "User3", "User4", "User5"]
+})
+
+const done = (result) => {
+    console.log("kkkk");
+    return result;
+}
+const AFun = (done, p1, p2) => {
+    setTimeout(() => {
+        done(p1+p2);
+    }, 1000);
+}
+const memoizedAsyncFn = memorize(AFun);
+memoizedAsyncFn((res)=>{console.log("===>>", res)}, 1, 2);
+要求下面from cache
+memoizedAsyncFn((res)=>{console.log("===>>", res)}, 1, 2‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌); // from cache
+之前弄过Afun返回Promise的，不返回Promise的异步弄了半天。
+
+题目就是给了一叠卡片，数字是从1到52，又两个玩家，轮流从卡片里面抽，然后比较大小，大的玩家就收走两个卡片，最后谁的卡片多，谁就赢了。要求模拟整个游戏的过程，最后打印出来赢家。楼主就是用randomization来做的，用一个数组检查randomization里面是否有重复，有的话就再进行一次。写完之后运行了一下，运行成功。
+然后面试官问如何能证明整个游戏是正确的，楼主说可以打印出来每轮的游戏情况来audit，并且最后可以打印出这个数组，证明每个数都被选到了，面试官说，I like that idea，let's do both。然后楼主打印了每轮的进程，发现了一些index忘记+1 -1的小bug，很快就修复好了。又打印了最后card 数组里面证明每一个数都被选到了，又run了几次，一切都正常
+然后面试官follow up问，怎么把整个函数分区，楼主说可以分三个部分，initialization，进行游戏，验证游戏，然后warp成了不同的函数。
+接着面试官follow up问，如果不是52张牌，而是可以自由‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌决定多少张牌，该怎么做，楼主修改了代码，支持自定义卡牌数量，并且修改了验证的部分，运行代码，正确。
+接着面试官follow up问，如果不是两个玩家，而是可以自由决定游戏玩家人数，该怎么做，楼主又修改了代码，支持多人游戏，并且修改了验证的部分，运行代码，有几个小typo，改了之后，正确。
+
+先自我介绍然后题目是用html， css／js做progress bar 动画，在online editor 上写， 然后followup是怎么做多个progress bar‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ 然后要求一次只能执行一个。要保证能跑过
+然后问问题 准点结束
+大叔先问了几个口头问题，问JavaScript的event queue是怎么回事。然后问hashing是干啥的。讲hashing的时候问到hashmap 的runtime是多少，collision怎么办，为什么write是O（1）如果hashmap要dynamically increase size。
+然后算法题。给一个binary tree， 每个node 上面有一个integer。找到最长的连续increasing integer path 的length。保证path是从parent到child的。比如
+      3
+  1      5
+2  4   1  9
+最长的是左边的那个1 - 2， 所以长度是2。
+算法挺简单，就是preorder traverse，然后每个node上记录到当前的node为止increasing path的有多长。但是做的时候是在hacker rank上做的。没有‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌leetcode那样把tree都写好了。所以要自己写tree的deserialization。我用了leetcode上类似的从array 转化到tree的方法。出了点小错，大叔提醒我debug一下，最后找出来了。
+输入输出挺随意，hardcode一个testcase，console log结果就好了。
+做完后剩15分钟问问题。问了些uber ATG的culture，还有technology等等。
+过了两天收到recruiter的邮件说约onsite
+给了这个 二维数组 求最长的 路径
+[      ["SFO", "EWR"],      ["SJC", "LAX"],      ["DFW", "SJC"],      ["EWR", "OAK"],      ["LAX", "SFO"] ‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ ]
+["DFW", "SJC", "LAX", "SFO", "EWR", "OAK"]
+
+给两个API，fetchFromGithub(keyword) ，fetchFromGoogle(keyword)，分别返回promise，实现mergeResults
+followup1：如果类似的API有n个
+followup2：如果有promise被reject，只返回resolve的结果‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌
+followup3：如果有promise超时，只返回已经resolve的结果
+
+店面一小时。主要做的是用 JS / React 写一个小项目。用的是 code pan，可以直接 copy paste react lib 进去。给一个图例，然后用 React / JS 写出来。可以用不同的 lib，Angular，Native JS 或者 Vue 都可以。
+小项目是 auto complete，需要 Ping api query 人名，然后按 tab 把人命加进去。之后用组成的人名来 ping 另外一个 endpoint，来找出选的人的关系。例如读同一个学校，一家的之类的。
+量挺大的，不过不‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌会让你全部写完（他会一直加 specification，一直到你写不动为止）。例如，加一个 loading spinner，display 一个 list （和 google search result 一样）之类的

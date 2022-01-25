@@ -1,0 +1,48 @@
+.container{
+    width:1000px;
+    height:800px;
+}
+.subContainer{
+    width:100%;
+    height:100%;
+    background-color: blueviolet;
+    display:flex;
+    flex-direction: column;
+
+}
+.tabContainer{
+display:flex;
+flex-direction: row;
+
+}
+.tab{
+    height:100px;
+    width:200px;
+    text-transform:  capitalize;
+}
+.tab:hover {
+    color: #ffbe0b;
+    cursor: pointer;
+}
+
+.activeTab{
+    background-color: cadetblue;
+    color: white;
+    text-align: center;
+}
+
+.inactiveTab{
+    width:200px;
+    height:100px;
+    color:white;
+    background-color: #8338ec9e;
+}
+
+.content{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}

@@ -1,0 +1,43 @@
+.stars{
+    display:flex;
+}
+/* 
+explaination of difference between two class whether it has a space or not
+so when use queryselector('.className').classList.add('classname2') should use no space
+.element .symbol
+means .symbol inside .element
+
+.element.symbol
+means .element that has the class symbol as well.
+
+So,
+
+.element.large .symbol
+means .symbol inside .element that has the class large as well. */
+.stars.disabled{
+    pointer-events: none;
+}
+.stars a{
+    opacity:50%;
+    cursor:pointer;
+
+}
+
+.stars:hover a {
+    opacity:100%;
+
+}
+/* 
+.stars a:hover {
+    opacity:50%;
+} */
+
+/* a:hover ~ a means change element behind the current hover element */
+/* definition element1~element2	p ~ ul	Selects every <ul> element that is preceded by a <p> element */
+.stars a:hover ~ a{
+    opacity :50%;
+}
+
+.stars a.active{
+    opacity:100%;
+}

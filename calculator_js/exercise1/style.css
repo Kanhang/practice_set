@@ -1,0 +1,23 @@
+.row{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.value{
+    display: inline-block;
+    text-align: right; 
+    width: 10rem;
+ 
+}
+/* error1: text align has to use with am inline-block */
+button{
+    width:50px;
+    border:none;
+    margin:10px;
+    padding:5px;
+}
+/* 
+.calculator{
+    justify-content:center;
+    align-items:center;
+} */

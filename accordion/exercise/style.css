@@ -1,0 +1,12 @@
+.panel{
+    display:none;
+    width:30%;
+}
+.title.active{
+    background:yellow;
+}
+
+.title{
+    width:30%;
+    background-color: grey;
+}

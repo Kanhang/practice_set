@@ -1,0 +1,30 @@
+
+/**
+ * @param {Function} func
+ * @param {number} wait
+ */
+//we update the lastArgs every input;
+// we take a callback function ,and a wait time 
+// for throttle we need to set a waiting flag, if not waiting then set waiting to true
+//and start timeout, after timesout we apply our function with last args, and then reset waiting to false
+// if we are at waiting phase, we update the last args with new args everytime.
+function throttle(func, wait) {
+  // your code here
+  let lastArgs= null;
+  let waiting=false;
+  return function(...args){
+    if (!waiting){
+      waiting=true;
+      func.apply(this,args); //first run it, then use lastargs
+      setTimeout(()=>{
+        if(lastArgs)
+          func.apply(this,lastArgs);
+      waiting=false;
+      },wait);
+
+    }
+    else{
+    lastArgs= [...args];
+    }
+  }
+}

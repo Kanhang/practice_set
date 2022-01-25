@@ -1,0 +1,29 @@
+.starsWrapper{
+
+    display:flex;
+    
+}
+
+.starsWrapper.disabled{
+pointer-events:none;
+}
+
+.starsWrapper span{
+    opacity:0.5;
+    cursor:pointer;
+}
+.starsWrapper:hover span {   /* first error, should hover on starWrapper 
+                            ,this is to change all the stars,
+                             we dont need to worry about that, because next selector 
+                             will fix this for us */
+    opacity:1;
+}
+.starsWrapper span:hover ~ span{  /* hover the element before current star*/
+    opacity:0.5;
+}
+/*this is way to search the element under a class
+no . if there is a dot, then it is a class. not dot means tag inside the class
+*/
+.starsWrapper span.active{
+opacity:1
+}

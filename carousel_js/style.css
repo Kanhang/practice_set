@@ -1,0 +1,23 @@
+.wrapper{
+    color:powderblue;
+}
+.image{
+    width:10rem;
+    height:10rem;
+    display:none;
+}
+
+.image.show{
+    width:10rem;
+    height:10rem;
+    display:inline;
+}
+
+.prev{
+width:2rem;
+height:2rem;
+}
+.next{
+width:2rem;
+height:2rem;
+}

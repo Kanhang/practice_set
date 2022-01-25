@@ -1,0 +1,19 @@
+.board{
+width:31rem;
+height:31rem;
+border:1px black solid;
+display:flex;
+margin:auto;
+flex-wrap:wrap;
+}
+
+.square{
+width:10rem;
+height:10rem;
+border:1px black solid;
+font-size:3rem;
+}
+
+.square:hover{
+    background-color:paleturquoise;
+}

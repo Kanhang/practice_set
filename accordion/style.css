@@ -1,0 +1,20 @@
+
+.accordion{
+    background-color:grey;
+    color:black;
+    cursor:pointer;
+    width:100%;
+    text-align:left;
+    border:none;
+    outline:none;
+}
+
+.active,.accordion:hover{
+    background-color:yellow;
+}
+
+.panel{
+padding:0 18px;
+background-color: white;
+display:none;
+}
