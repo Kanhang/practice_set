@@ -1,0 +1,14 @@
+.stars{
+    display:flex;
+    cursor:pointer;
+  }
+  
+  .disabled{
+    pointer-events:none;
+  }
+  .on{
+    opacity:1;
+  }
+  .off{
+    opacity:0.5;
+  }

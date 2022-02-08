@@ -1,0 +1,10 @@
+1. 从n个排序数组中找出出现频率超过k次的数字，结果按照频率排序，如果频率相同则按数字大小排序；
+2. 简历&bahavior
+3. Unrolled linked list
+4. Hackerrank上coding，resume（resume由key和value的集合组成，比如{name: 'xxx', skill: 'yyy'})版本更新功能，需要实现这么几个API：
+update(key, value) //生成一个新的version，并存key和value，如果前面版本当中key存在的话，新的value要覆盖前面版本已经存在的value
+getVersion(versionId) // 打印出某版本中所有的key-value，按照key字母顺序排序，注意最新版本要继承前面版本的key
+‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌
+getValue(versionId, key) // 打印某版本中某个key的值
+5. Code review，语言我选了js，code review一个react component代码
+6. manager扯淡

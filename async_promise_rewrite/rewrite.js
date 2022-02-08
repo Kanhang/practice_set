@@ -1,3 +1,4 @@
+
 fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699")
 .then(function(res) { return res.json() })
 .then(function(result) {
@@ -23,7 +24,7 @@ async function getItems(){
 
 }
 
-const items= await getItems()
+// const items= await getItems()
 
 
 async function getItems() {
@@ -37,5 +38,5 @@ async function getItems() {
 
   return results.items
 }
-const items = await getItems()
-console.log(items)
+// const items = await getItems()
+// console.log(items)

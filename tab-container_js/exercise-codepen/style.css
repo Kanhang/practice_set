@@ -1,0 +1,29 @@
+.tab{
+    height:10%;
+    margin:20px;
+  }
+  
+  .root{
+    display:flex; 
+    flex-direction:row;
+  }
+  .tabContainer{
+    display:flex;
+    order:1;
+    flex-direction:column;
+  }
+  .content{
+    line-height:300px;
+    text-align:center;
+  background-color:yellow;
+    order:2;
+    width:80%;
+    height:300px;
+  }
+  
+  .active{
+    background-color:blue;
+  }
+  .inactive{
+      background-color:red;
+  }

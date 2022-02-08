@@ -1,0 +1,177 @@
+1. Bar raiser 有个烙印shadow BQ
+2. Coding TikTakToe
+3. HM BQ culture
+4. LC 伊舅舅 + DP一道题 space 超标，一直跑不过 时间到了就pass了
+5. Design 天竺小哥，刚刚promote L5。 问了问google drive design， 稀里糊涂的
+1 写一个前端的Task Schduler, 要考虑async和multithread的情况
+2 刷题网儿三舅
+3 和hiring manager闲聊，bq
+4 系统设计：‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌google excel sheet
+1. Bar raiser - BQ 瞎聊
+2. 中国小哥。给了个icicle visualization 让用html css js实现, 从data model开始想怎么实现。实力不足，最后显示没做全。自己回家用absolute做出来了 但是应该可以更简单的实现
+午饭瞎聊
+3. 先问了array flattern，卡壳了花了点时间。然后设计扫雷游戏，实现了initial state就没时间了
+4. HM 聊了半个小时就问‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌完了
+5. 跟throttle类似，buffered output，就是每隔一段时间跑一次程序 (throttle是一段时间只跑一次)
+
+先是需要在电脑上做一道题，有多笔交易需要按照付款方和收款方合并得到一个总值
+然后是头头进行非技术面
+然后一个白板设计环节，需要做一个类似股票交易观察的app需要什么api
+接着一个live coding，现场用前端做一个简单的聊天软件
+最后是另外一个头头再来一轮‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌非技术面
+总共用了5个小时左右，其中一些技术面是remote面的，稍微有点尬。
+1 bar raiser 印度小哥 纯项目经验聊天 bq question
+2 System design： design uber 从前端到后段一顿说 然后从各个方面找优化的方法
+3 Hire manager： BQ 和做过的项目深入
+4 算法 tic tac toe 验证 和 number of is‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌land
+5 前端： 实现slider 和task runner
+第一轮：coding：高频题task runner；system design：设计一个文件转换系统，用户可以上传视频文件或提供url，系统可以将文件转换成音频文件；
+第二轮：coding：利扣散似，上一轮task runner为每个task加priority，priority大的task先执行；
+第三轮：hiring manager：前端优化（优化需要衡量哪些metri‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌cs，怎样测试用户网速），BQ
+第四轮：前端：没有coding，项目技术选型，文件组织结构
+第五轮：bar raiser，BQ
+第一轮behavior，聊了下项目经历，以及teamwork的情况。最后会问如果你加入了Uber，有哪些新feature你觉得可以做。
+第二轮前端，
+1. 实现一个js function，可以get嵌套object/array内的value。 参考npm的get-value。  https://www.npmjs.com/package/get-value
+2. 实现一个progress bar，要求3秒内从0到100。 并且有三个button：start, pause, reset。可以开始、暂停、重置。
+HTML+CSS+JS，在那个online editor上写，并跑出来。类似codepen那种。
+第三轮算法，
+是个backend组的老大，
+number of islands
+follow up：如果island之间有桥（假如用“B”表示），如何找到island A到 island B之间的最短路（即通过的桥最少）。问了下时间、空间复杂度。
+讨论了下是否需要用Priority Queue的优劣势。
+第四轮behavior
+第五轮System Design
+也是另一组的tech lead，像是fu‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ll stack
+设计一个Map editor，可以在上面添加新的地点。
+聊了下前后台的设计，以及问如果有成千上万个点，如何在前端显示做优化。
+给了个quad tree方案，小哥感觉不错，看表还剩时间，就说你把quad tree实现一下吧。。。  最后思路讲了一下，没写完，只写了insert方法，后来小哥说very good，结束。
+后来发现这个写的代码一直都没有被锁，估计没有算在里面。
+
+贫农一个 跪求大米 加分不扣分的
+onsite 5 轮
+2 轮算法，2 轮系统，一轮 behavior
+系统设计第一轮是设计一个 sudoku。这个 sudoku 需要用户输入数字，然后每一次输入的时候得算是否有违反规则。如果有违反规则，那个 sudoku 的 cell 得用红色显示，要不然不显示。当用户完成所有的 cell 的时候，输出用户赢了。
+这个 check 不太难，关键是要怎么样写的比较 extendable 和 decoupled。建议用 MVC / Observable 来做。这个比较微观的设计，测得是你能不能写好的 class diagram 和 routine。
+系统设计第二轮是设计一个音乐播放器 (spotify)。需要有搜索功能，艺术家主页，播放，收藏音乐，创造 playlist 等功能。这个更多的是你自己的发挥。后端前端都需要设计。例如后端需要有什么 endpoint，每个 endpoint 返回的是什么值。这个相比第一个，更多是宏观的设计。 当你的 interviewer 除了 ‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌specification 以外其他的都不问，那你就过了。
+算法面的忘记了。大概是 LC medium - hard 难度。graph 肯定有，DP 忘记有没有了。。
+Behavior 面的就很亚麻。问的就是一些，如果你和同事吵架了该怎么办。还有一点就是他们会问关于无人车的事情。最好做一些关于无人车科普的知识，例如无人车是怎么工作的之类的。
+
+设计online form builder （含前端data structure和功能设计）
+Coding： 计算过去一段时间的股票的平均值 给股票日价和time window
+前端： 写一个拿github repo 的页面，很简单。一个input box 拿github username，然后写个fetch call就可以了。可能会几个人，所以需要promise all
+bar raise 轮可能没聊好，recruiter回复tech 没问题，communication和leader‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ship反馈不好
+hm轮也是就是behavioral
+
+Given a list[ [s,e],[s1,e2],[s2,e2]]. Return the frequency of intervals
+
+[[0,3],[1,4],[2,7]]
+
+[0,1]->1
+[1-2]-> 2
+[2-3]-> 3
+[3-4]-> 2
+[4-7]->1
+
+Given a positive int n, print all jumping numbers smaller than or equal to n. A number is called a jumping number if all adjacent digits in it differ by 1. For example, 8987 and 4343456 are jumping numbers, but 796 and 89098 are not. All single digit numbers are considered as jumping numbers.
+
+Example:
+
+Input: 105
+Output: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 21, 23, 32, 34, 43, 45, 54, 56, 65, 67, 76, 78, 87, 89, 98, 101]
+
+You have two arrays of strings, words and parts. Write a function findSubstrings(words, parts) that returns the array that contains the strings from words, modified so that any occurrences of the substrings from parts are surrounded by square brackets [], following these guidelines:
+
+If several parts substrings occur in one string in words, choose the longest one.
+If there is still more than one such part, then choose the one that appears first in the string.
+Example 1:
+
+Input: words = ["Apple", "Melon", "Orange", "Watermelon"], parts = ["a", "mel", "lon", "el", "An"]
+Output: ["Apple", "Me[lon]", "Or[a]nge", "Water[mel]on"]. 
+Explanation: While "Watermelon" contains three substrings from the parts array ("a", "mel", and "lon") "mel" is the longest substring
+that appears first in the string.
+
+You are given an array a of size n and integers k and z. Find the number of subsequences of length k such that absolute difference between any two elements in that subsequence is atleast z i.e |ai-aj| >= z.
+Logic:
+
+Firstly we will sort the array (order does not matter)
+first we will store for every index i the maximum index j such that |ai-aj| >= z. and i > j. (we can use stack for O(n)
+the we will define dp[i][j] where it denotes number of subsequences of length j till i including ith element.
+now to calculate dp[i][j] = summation(dp[index][j-1]) where 0 <= index <= L. where L is the index that we calculate for every element in step 2.
+we can basically maintain presum dp[index][j] that can be used in next step to calculate dp[i][j+1] in O(1)
+This is the logic you can ask doubts you have I will answer all of them
+
+Coding 1:
+Parse + validate strings for a simple language as follows :
+input -> "add(1,3)"
+input -> "sub(1,3)"
+operations take only 2 params. commands may be nested.
+ie. add(sub(3,4), 1) sub(add(238943, 2343), add(1, sub(323, 43)))
+if an error is detected, report the column and what the error was
+foo(1, 2) # foo is not a valid method at col 0
+add(a, 3) # expecting a number or method at col 5
+
+Coding 2:
+Let's assume we have data about start and end time of Uber trips, e.g.
+
+Case 1:
+Trip 1: Start: 0, End: 5
+Trip 2: Start: 1, End: 2
+Trip 3: Start: 3, End: 7
+Output:
+0 1 -> 1
+1 2 -> 1
+2 3 -> 2
+3 4 -> 2
+4 5 -> 1
+Follow up : For case like below, compact the output
+[0 1]
+[1 3]
+[2 4]
+[3 5]
+[0 2] -> 1
+[2 4] -> 2
+[4 5] -> 1
+
+Design
+Given billions of text messages, design the index for the messages in order to efficiently retrieve messages that contain given keywords. Suppose each message can be identified and retrieved by a unique sequence number.Task 1: Design data structure to organize the keyword index.Task 2: Coding: write a method to index a given message.Task 3: Problem: each of the given search keywords are frequent (so the index list is very long) but not many messages contain all of the keywords (i.e. the intersection is small). How to improve index for multiple keywords search. For example, search for the keywords "this is a fatal disk error": most of the keywords are frequent but there may be only a few messages containing all of these keywords.
+
+My phone: https://leetcode.com/problems/bus-routes/
+Overall I found this onsite to be very hard :(
+
+    You are getting stream of data which is stored by calling the function NewData.
+
+void NewData(int time, String key, int value) {
+	// code which takes the input and stores in some data structure
+}
+And then you call top3 which returns the top 3 keys in the last 10 units of time.
+
+List<String, Integer> top3(int t) {
+	// returns the top 3 keys from time 't-9' to time 't' inclusive
+}
+Implement these two functions. How will you store the data to optimize getting the data?
+
+example ->
+
+NewData(0, “a”, 1)
+NewData(0, “a”, 2) => so after this, key ‘a’ has value 3 at time 0
+NewData(0, “b”, 5)
+NewData(1, “c”, 6)
+NewData(2, “d”, 3)
+NewData(3, “d”, 7)
+NewData(4, “d”, 1)
+NewData(4, “a”, 2)
+NewData(5, “b”, 4)
+NewData(5, “e”, 5)
+NewData(5, “e”, 6)
+NewData(5, “d”, 4)
+NewData(6, “a”, 2)
+NewData(6, “c”, 1)
+.
+.
+.
+.
+NewData(13, “c”, 5)
+
+top3(13) => it should return aggregated top 3 keys from time 4 to time 13 like
+[(‘d’, 12), (‘e’, 11), (‘c’, 6)]

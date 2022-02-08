@@ -1,0 +1,16 @@
+{
+  "name": "vaillia_js_fetch_async",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-fetch": "^3.1.5",
+    "esm": "^3.2.25"
+  }
+}

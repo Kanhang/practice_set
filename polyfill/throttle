@@ -1,30 +1,53 @@
+//throttle 
 
-/**
- * @param {Function} func
- * @param {number} wait
- */
-//we update the lastArgs every input;
-// we take a callback function ,and a wait time 
-// for throttle we need to set a waiting flag, if not waiting then set waiting to true
-//and start timeout, after timesout we apply our function with last args, and then reset waiting to false
-// if we are at waiting phase, we update the last args with new args everytime.
-function throttle(func, wait) {
-  // your code here
-  let lastArgs= null;
-  let waiting=false;
+function throttle(func, delay){
+  let waiting = false, lastArgs = null;
   return function(...args){
-    if (!waiting){
-      waiting=true;
-      func.apply(this,args); //first run it, then use lastargs
-      setTimeout(()=>{
-        if(lastArgs)
-          func.apply(this,lastArgs);
-      waiting=false;
-      },wait);
-
+    if(!waiting){
+      func.apply(this, args)
+      waiting = true;
+    var timeout = () => setTimeout(() => {
+        waiting = false;
+        if(lastArgs){
+          func.apply(this, lastArgs);
+          waiting = true;
+          lastArgs = null;
+          timeout();
+        }
+      }, delay);
+      timeout();
     }
-    else{
-    lastArgs= [...args];
-    }
+    else 
+      lastArgs = args
   }
 }
+  const func = (arg) => {
+      console.log(arg)
+     }
+     const throttled = throttle(func, 1000)
+     //format of setimeout(takes a error function);
+  setTimeout(() => throttled('A'),200)
+  setTimeout(() => throttled('B'),800)
+  setTimeout(() => throttled('C'),600)
+  setTimeout(() => throttled('D'),1100)
+  setTimeout(() => throttled('E'),1400)
+  setTimeout(() => throttled('F'),1800)
+//     const run = (input) => {
+//       currentTime = 0
+//       const func = (arg) => {
+//        console.log(arg)
+//       }
+//       const throttled = throttle(func, 1000)
+//     //   input.forEach((call) => {
+//     //      const [arg, time] = call.split('@')
+//     //      setTimeout(() => throttled(arg), time)
+//     //   })
+//     setTimeout(() => throttled('A'),200)
+//     setTimeout(() => throttled('B'),800)
+//     setTimeout(() => throttled('C'),600)
+//     setTimeout(() => throttled('D'),1100)
+//     setTimeout(() => throttled('E'),1400)
+//     setTimeout(() => throttled('F'),1800)
+//     }
+  
+// run(['A@200', 'B@800', 'C@1100']);

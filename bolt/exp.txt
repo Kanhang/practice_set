@@ -1,0 +1,13 @@
+
+首先感谢地里的内推，发一个bolt的前端面经
+电面：上来随便互相介绍下，直接做题，都是javascript相关
+1. 读题看output，具体就是个reduce function 然后sum up里面object的value （忽略了一些format不一致的key和不是整数的property value）
+2. 找array里frequency最高的数字
+3. 写一个function正确输出两条string，用promise
+4. 这‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌道题没太懂干嘛，面试官说他也不确定也不知道如何提示。
+5. 手写一个reduce
+
+
+他家 frontend 改版以后都是很实际的题 看你debug 或者理解code 的能力 不是算法
+电面都是js 相关的小题 js 基础打好了电面不会有大问题
+onsite 也不难 一道coding, 一道system design，past experience, manager sycn

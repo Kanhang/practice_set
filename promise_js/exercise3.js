@@ -53,7 +53,7 @@ try{
 }
 catch(e){
     this.promiseChain=[];
-    this.onReject=e;
+    this.onReject(e);
 }
 }
 onReject(error){

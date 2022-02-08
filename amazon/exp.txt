@@ -1,0 +1,95 @@
+
+AWS组的，之前有Recuiter在邮件上找到说有后端职位，我说我是做前端的并保持了联系。后来有前端的职位就把我简历给推上去了可以面L4/L5，recuiter说区别是L5多一轮system design并且lp的点会更多一点
+Phone Screen：
+上来先写一个class，可以给车加速度减速度的，可以car.addspeed().minus(speed)...一直往后加
+之后写一个todo list，可以用react，很简单就秒了
+先聊天将近半小时，真是不太受得了，直接问题目不好吗？
+用js实现一个简单的文件查看器，
+左边文件名称列表，点击一个文件名称，右边显示文件内容
+--------------------------------------------------
+| file-1.txt |                                                       |
+| file-2.txt |                                                       |
+|               |                                                        |
+|               |                                                        |
+|               |   file content                                   |
+|               |                                                        |
+--------------------------------------------------
+已知有两个API可以用，都是返回Promise的
+GET /api/files
+{ files: ["file-1.txt", "file-2.txt"] }
+GET /api/files/{filename}
+{ file: ‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌"aGVsbG8gd29ybGQ=" } // renderContent(el, content) // <FileContent content={fileContent} />
+实现起来不难，也就20分钟差不多。
+过了，有别的offer了，onsite不打算继续了。
+
+
+实在急着需要大米看抖包袱，拜托求加米了！
+亚麻Frontend Engineer的职位
+大致时间轴是这样：
+15mins BQ + 35mins technical + 5mins questions
+BQ：
+亚麻有10多个Leadership Principles，我实在是觉得头痛所以就没有一一准备，我按照平常准备BQ的样子复习了一些例子，用STAR法则，到时候面试时临场发挥就好。
+BQ也是问了比较challenging的project。问了有没有跟别人产生意见不合的时候，如何解决的这类常见的问题。
+UI coding 题：
+跟pagination有关的，只要写JS，不用run也不用render。
+假设有一个API可以返回an array of data，然后把这些data展示在网页上。
+followup就是说考虑到data有很多很多，我们需要分页，然后该怎么设计这个API。我觉得就是考‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌怎么做pagination。
+然后API有了，我JS代码要如何实现通过按一个按钮，就获取下一页的data然后展示在网页上。
+上来先是一个warm up，如何把一个数组的所有元素复制一遍，做一个新数组。[1,2]变成[1,2,1,2]。然后是个behavior question。
+以下内容需要积分高于 188 您已经可以浏览
+接着是个前端的问题，他给我一个json，里面有dir, file之类的层级结构，要求写点js创建出一个树结构的html element，并且附了最终的大致效果图，用angular或者react都行。我‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌刚做前端没多久，其实写这个并不熟练，申请换一道算法题，可是面试官没允许。。。于是我只能硬着头皮写了个大概，最后解释了一下我的函数的具体作用，面试官小哥说了句good, it makes sense... 唉，感觉希望不大，我大多时间都是准备得算法题呀...
+
+第二部分设计一个tabs widget，感觉如果给真的做前端的人去做的话不是很难，但我就是不会哈哈，在面试官的引导下做出了一‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌个小东西。面试官人很好，一点一点引导我的思路。
+虽然第二天就通知我挂了，但我个人感觉这个电面应该不算难，参加这个面试的原因也是想试试各种opportunity，熟悉一下面试氛围，但我的跳槽方向还是sde。
+
+2. JS 概念
+event bubbling , event parsing, event delegation , 给个例子
+prototype 概念
+3. 算法
+depulicate an array , input [1,2,3] output [1,2,3,1,2,3]
+dfs preorder 打印
+还有一题不记得了 , 但都是很简单 一眼就会的
+4. react project
+大概是, 用左右控制小车速度 , ←减速1 →加速1, 然后吧currentSpend 发送到 server上 , api给了直接用
+follow up , 问下了如何优化 发送currentSpeed 的过程 , 不要按一下发一次, 就是想问你 debounce
+然后问了下 debounce 和 throt‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌tle的区别
+算法面的巨简单, 概念什么的多准备 , 最后好像是时间不太够了 , 不然debounce 和 throttle 应该是要写码的
+follow-up: how do you deal with conflicts between 2 of your teammates
+白板题考的是前端非常基础的
+设计一个单页网站用js
+每次点按钮就‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌提示当前已经点了X次按钮
+
+Create a function that finds elements in the DOM by a style. The function should take a CSS property name and value
+and return the list of elements in the DOM that match that style. The function signature should look like the following:
+
+method signature:
+getElementsByStyle => (property: string, value: string): Array
+
+For example, you might call getElementsByStyle("color", "#FFF") and it would return all the elements in the DOM with white text.
+
+You can use the following to help you:
+
+document.body: returns the root body node
+element.children: returns the immediate children of any node
+Map<cssProperty: string, cssValue: string> getComputedStyle(element): returns an object containing the styles applied to an element where each key is a style property
+and the value is the CSS value, inherited values are included
+assume querySelectorAll cannot be used in the implementation
+
+
+['dog', 'mammal'],
+["shark, fish"],
+["cat", "mammal"],
+["mammal", "animal"],
+['fish', 'animal']
+Option 3:
+{
+  "animal": {
+    "fish": {
+      "shark": {}
+    },
+    "mammal": {
+      "cat": {},
+      "dog": {}
+    }
+  }
+}

@@ -96,6 +96,8 @@ class PromiseSimple {
     });
   };
   
+
+
   //use the promise
   makeApiCall()
     .then((user) => {

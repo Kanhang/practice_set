@@ -8,6 +8,7 @@ Array.prototype.newReduce= function (callback,initialValue){
      let accumulator = initialValue || undefined;
    //if we have accumulator provided we use accumulator function, other wise we use 
    //first value as initial value; 
+   console.log(this);
     for ( let i =0;  i< this.length; i ++){
     if(accumulator){
         //first acc, means we use accumulator as this, 
@@ -26,10 +27,10 @@ const double = nums.newReduce((accum, current) => {
   return accum
 }, []);
 console.log(double)
-const queryString = "cat=meow&duck=quack&dog=woof";
-const queryObject = queryString.split("&").newReduce((accum, current) => {
-  const splitString = current.split("=")
-  accum[splitString[0]] = splitString[1];
-  return accum;
-}, {})
-console.log(queryObject);
+// const queryString = "cat=meow&duck=quack&dog=woof";
+// const queryObject = queryString.split("&").newReduce((accum, current) => {
+//   const splitString = current.split("=")
+//   accum[splitString[0]] = splitString[1];
+//   return accum;
+// }, {})
+// console.log(queryObject);

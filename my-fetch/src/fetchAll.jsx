@@ -20,7 +20,7 @@ const fetchComments =()=>{
     return fetch(COMMENTS_URL)
     .then (res=>res.json())
     
-}
+} ; 
     useEffect(()=>{
         Promise.all([
             fetchPost(),

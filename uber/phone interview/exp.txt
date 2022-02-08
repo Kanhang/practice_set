@@ -58,4 +58,16 @@ followup3：如果有promise超时，只返回已经resolve的结果
 
 店面一小时。主要做的是用 JS / React 写一个小项目。用的是 code pan，可以直接 copy paste react lib 进去。给一个图例，然后用 React / JS 写出来。可以用不同的 lib，Angular，Native JS 或者 Vue 都可以。
 小项目是 auto complete，需要 Ping api query 人名，然后按 tab 把人命加进去。之后用组成的人名来 ping 另外一个 endpoint，来找出选的人的关系。例如读同一个学校，一家的之类的。
-量挺大的，不过不‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌会让你全部写完（他会一直加 specification，一直到你写不动为止）。例如，加一个 loading spinner，display 一个 list （和 google search result 一样）之类的
+量挺大的，不过不‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌会让你全部写完（他会一直加 specification，一直到你写不动为止）。例如，加一个 loading spinner，display 一个 list （和 google search result 一样）之类的This was for a front end position.
+
+Prompt was deceptively simple. They set you up in a code sandbox environment using Code Signal. They give you a html button and when a user clicks a button, it continually adds a progress bar onto the page. The progress bar would then have to load in a given amount of time (think 3 to 5 seconds). Learn your easy math to make sure the progress bar moves smoothly. There are many tutorials online about how to 'animate' this with CSS transition if the progress bar is already on the page. I had seen this via normal front end prep, but didn't know the variation of using the button to add it.
+
+If you get past the first part, then they ask you to do by throttling how many progress bars can be running at once. For example, if the limit is 3 progress bars, and the user clicks on the button 4 times, the fourth progress bar only starts after the very first one finishes. You need proper scoping on this.
+
+I didn't know this at the time since I failed pretty miserably, but if one gets past that part, then the interviewer apparently will ask you to do it without setTimeout() , which is a popular way to do it. I only found that out after searching for it after the fact.
+
+The main interviewer posts on the reddit javascript channel under a screen name that is first name initial plus his real last name. Not sure that will help anyway in particular, but on reddit he talks about how candidates that build their own version of underscore or lodash are the ones the pass. Your own mileage will vary.
+
+Interviewer looked quite bored from the start, as if he knew this probably wouldn't work out. He's also very purposefully vague in his instructions, and so you have to clarify. One tip is, when you're asked to talk about yourself at the very beginning, only say two to three sentences max. I tried to speak slowly and clearly and give some detail about my current role. Naw fam. Skip dat. You will need all the time possible to code. Interviewer is not good at hiding the fact that he wasn't even listening and barely cared what I said for the intro. You could probably say, "I love linux penguin let's start coding" and that will work just as well.
+
+Once again, front end folks, keep posting what you encounter please.
