@@ -15,3 +15,4 @@ const double = numbers.newMap((item,index)=>{
     return item*2;
 })
 console.log(double);
+

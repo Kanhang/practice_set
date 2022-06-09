@@ -5,8 +5,6 @@
 //    'getX' :function (){return this.x};
 // }
 
-import { element } from "prop-types";
-
 // // const retrieveX = module.getX();
 //retrieveX.bind(module)
 // so it takes context; 

@@ -1,17 +1,20 @@
 //function promisify takes an argument of any and returns a Promise which resolve to that value;
  
+const add =(a,b)=> a+b;
+const multiply= (c)=>c*2;
+
 async function call(){
-   const foo = await promisify(2);
-   console.log(foo)
-    const foob=  await promisify(3).then(value=>value+1);
-    console.log(foob);
+const foo = await promisify(add)(1,1); 
+console.log(foo);
+  const haha= await promisify(multiply)(3).then(val=>val+1)
+  console.log(haha);// should return 7
 }
-// await promisify(2) //return 2
-// await promisify(3).then(value=>value+1);
 
-
-function promisify(arg){
-    return Promise((resolve,reject)=>{
-        resolve(arg)
-    });
+function promisify(fn){
+    return function(...arg2){
+ const res= fn.call(this,...arg2);
+ return new Promise((resolve, reject)=>{resolve(res)});
+    }
 }
+
+call()

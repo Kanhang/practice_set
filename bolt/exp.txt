@@ -11,3 +11,11 @@
 他家 frontend 改版以后都是很实际的题 看你debug 或者理解code 的能力 不是算法
 电面都是js 相关的小题 js 基础打好了电面不会有大问题
 onsite 也不难 一道coding, 一道system design，past experience, manager sycn
+
+补充下那道挂了的题，有点不太记得细节了
+const invoke = () => {}
+const add = (x, y) => x + y
+invoke(add(1, 2))
+invoke(add(3, 4))
+说call invoke的时候return expected value 然后call另一个function revoke的时候所有的值变成undefined
+然后implement这个过程

@@ -1,0 +1,134 @@
+题目1： what is same original js and what's the work around
+What is the Same-Origin Policy (SOP)?
+
+Who has the same origin?
+Two URLs are said to have 
+the same origin if they share the same protocol, 
+hostname and port number.
+
+https :// google.com/
+https :// google.com/haha
+https ://google.com:443/ https 443 protocol by default.
+
+Setting document.domain
+Setting the domain of different subdomains 
+to the same using document.domain will enable them to share resources.
+ For example, setting the domain of a.domain.com and b.domain.com to
+ domain.com so that they can interact.
+
+ Cross-origin resource sharing (CORS)
+You can also use Cross-origin resource sharing (CORS) to relax the SOP
+. CORS protects the data of the requested server. It allows 
+servers to explicitly specify the list of origins that are allowed 
+via the Access-Control-Allow-Origin header. The origin of the page
+ sending the request is then checked against this list of allowed origins.
+ Cross-domain messaging (postMessage)
+
+PostMessage is a way of working around SOP. 
+This technique allows pages to send text-based messages
+ to other pages by calling the postMessage() method on a window. 
+ The receiving window then handles the message using an onmessage event handler.
+
+
+题目2：Restful API naming and versioning best practice
+1. Use nouns for naming URIs
+2 Use intuitive, clear, unabridged names
+3. Use forward slashes to denote URI hierarchy
+4. Separate words with hyphens
+5. Use lowercase letters
+6. Avoid special characters
+7. Avoid file extensions
+
+Understandability: The resource’s representation format should 
+be understandable and utilizable by both the server and the client
+Completeness: A resource should be completely represented by the format
+Linkability: A resource can be linked to another resource
+http://api.example.com/user-management/users
+POST https://<HOST>/customers
+Including the version in the URL
+Including the version in the URL is an easy strategy for
+ having the version number added at the end of the URI.
+https://api.domain.com/v1/
+https://api.domain.com/v2/
+https://api.domain.com/v3/
+Versioning in the subdomain
+In regard to versioning in the URL, subdomain versioning 
+puts the version within the URI but associated with the domain, like so:
+
+https://v1.api.domain.com/
+https://v2.api.domain.com/
+https://v3.api.domain.com/
+
+nother approach to versioning is using MIME types to include the API version. 
+In short, API producers register these MIME types on their backend and
+ then the consumers need to include accept and content-type headers.
+ GET https://<HOST>/orders/1325 HTTP/1.1
+Accept: application/json
+Version: 1
+
+题目3：how cookies works between web server and browser
+1. cross domain 解释
+Cross-Origin Resource Sharing (CORS) is an HTTP-header based
+ mechanism that allows a server to indicate any origins (domain, scheme, or port)
+  other than its own from which a browser should permit loading resources.
+   CORS also relies on a mechanism by which browsers make a "preflight" request 
+   to the server hosting the cross-origin resource, in order to check that the
+    server will permit the actual request. In that preflight, the browser sends
+     headers that indicate the HTTP method and headers that will be used in the 
+     actual request.
+
+     When you want to get a public resource from a different origin,
+      the resource-providing server needs to tell the browser
+       "This origin where the request is coming from can access my resource". 
+     The browser remembers that and allows cross-origin resource sharing.
+
+client 
+.It can access cookies via the Document property cookie.
+This means you can read all the cookies that are accessible 
+at the current location with document.cookie.
+ It gives you a string containing a semicolon-separated list of
+ cookies in key=value format:
+document.cookie = "hello=world; domain=example.com; Secure";
+
+Server
+The server can access and modify cookies via
+ an HTTP request’s response and request headers. 
+ Whenever the browser sends an HTTP request to the server, 
+ it attaches all the relevant cookies to that site with the cookie header.
+
+
+Cookies are created to identify you when you visit a new website. 
+
+The web server — which stores the website’s data — sends a short stream of 
+identifying info to your web browser.
+
+Browser cookies are identified and read by “name-value” pairs.
+ These tell cookies where to be sent and what data to recall.
+
+ Session management. For example, cookies let websites recognize users and recall their individual 
+ login information and preferences, such as sports news versus politics.
+
+1. general software design- 
+what is the most important object oriented programming principle for complex system
+The five principles are as follows:
+* S – Single Responsibility Principle (SRP): “A class should have one, and only one, reason to change.”
+* O – Open Closed Principle (OCP): “You should be able to extend a classes behavior, without mod‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ifying.”
+* L – Liskov Substitution Principle (LSP): “Derived classes must be substitutable for their base classes.”
+* I – Interface Segregation Principle (ISP): “Clients should not be forced to depend upon interfaces that they don't use.”
+* D – Dependency Inversion Principle (DIP): “Depend on abstraction, not on concretions.”
+
+OOP的什么性质让它可以处理复杂的类
+Abstraction: shows only the necessary details to the client of an object
+Encapsulation: process of enclosing one or more items within a physical or logical package
+Inheritance: allows us to define a class in terms of another class
+Polymorphism: an instance of something in various forms
+
+有一些具体例子问你用那个data structure来实现，比如说file system lz说n-ary tree，undo/redo lz答 pair of stacks，其他的忘了，反正都挺明显的
+A tree structure is the most common directory structure. The tree has a root directory, and every file in the system has a unique path. 
+
+put all the actions in a stack for multi level undo. 
+and in case of redo make another stack.this stack will
+ keep all the commands you have undone.so when you perform
+  an undo command you pop undo stack and push the action into 
+  redo stack.You do same thing into redo .
+when you pop a redo action put it into undo stack

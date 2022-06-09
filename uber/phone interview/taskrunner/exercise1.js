@@ -42,7 +42,7 @@ function expFn(done){
 }
 
 
-const r=new Runner(1);
+const r=new Runner(2);
 r.push(expFn,1);
 r.push(expFn,4);
 r.push(expFn,5);

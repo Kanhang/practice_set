@@ -1,0 +1,205 @@
+Coding 1 - https://leetcode.com/discuss/int ... 539511/apple-onsite
+Coding 2 - 给一个list of coordinates作为occupied，return每个coordinate最近的unoccupied的点，一样近的任选，order随意
+Coding 3 - 之前地里面说的那个1N2, 2N3, 3S1判断是否valid那个题
+Coding 4 - 给一个list‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ of Folder objects，return每个folder的absolute path。Folder object 有parent和name。然后反过来再搞一遍
+
+
+coding *
+1 刷题网： 一流衣领。 是个hard，其实面完了发现没那么难，但是当时没刷到，有点懵比了。面试官人很好，一直在hint，也是赶在最后关头写完了。
+2 一道简单热身题，不太记得了。 还有一道backtrack， 抱歉实在不记得了， 不是不想分享。都是中等难度。但是backtrack还是得手熟。我写的有点卡，到时间勉强写完。
+
+第一题 cord tree. 题目满长的,得先理解cord tree是什么,接着四小题,包含怎么找第几个char, 怎么取某范围内的char, 怎么删除某些范围内的char.
+时间耗太久, 结果没写完。
+第二题,有几个city,有分别的fun values, 然后也有一个各别的班机资料,可以知道从哪个城市到哪个城市有班机,不限定起点,求走四个城市可以让fun Value最大.
+dfs, bfs 都可以解,但求优化解法,大家可以讨论下,我后来只有机会用口头讲一下优化解法。
+第三题, 在tree上要陆续删除leaf, 1)第一小题是问, 如果删除leaf后, 某些node变成leaf,这些node要立刻成为下个删除的目标, 2)第二小题是问, 这些node（刚变成le‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌af的）不能立刻成为删除的目标.
+
+第二轮：Coding，白人大姐，很欢乐。考了一道很简单的，利口 戚戚 简化版，只需要输出组合的个数。
+第三轮：SD，白人L6大哥。题目是，给全世界的用户在每天的localtime 8pm，个性化推送top 10新闻。正好遇上我的强项，面试官表示我说的方案和他们线上在用的基本一致。
+第四轮：Coding，白人L6小哥。位运算题。理解题意很费劲，大概花了15分钟才理解是啥意思。题不难做，感觉就是easy难度。
+第五轮：Coding，南亚大哥。问一个网络上，一个节点可以对其相邻节点广播，广播完他就关机了，然后问是否从J点出发能够到K点？非常典型的BFS题。follow-up是
+
+
+第一轮，高频面经题，简化的餐馆排队系统，每个size的桌子只有一个，不用考虑下面这种情况，3个人来了，3人桌占着，把他们安排到空着的4人桌
+
+第二轮，写一个list的push_front，remove nth node，insert nth node，其中的node是class Node {int val, Node * next, int hashVal;}; hashVal是根据node后面所有node计算出来的，Hash(Node * nd)能算出这个val值，不用管这个Hash怎么实现的，面试官题目都不说清楚，先说hashVal根据val算，又说按val和next算，又说即使val和next都没变，后面的有一个node变了也得重新算，改来改去到最后也没写完
+complain后HR又给安排了一轮，不确定第二轮有没有送交HC
+一辆汽车在原点，开始速度是1，给一个字符串，A表示加速，R表示掉头，掉头后速度变成1，"AAARAARA"后车所在位置是1+2+4-1-2+1=5
+求解把汽车开到某一点最短的字符串，我说可能要用DP，面试官说不用，用bfs写出来了，复杂度O(2^n)，不是他想要的解，解释半天他才看懂
+
+
+第一轮BQ: 中国大哥
+1.你是怎么做的能保证与科技与时俱进
+2.如果你被安排了你不会做的domain,你要怎么做?
+3.在与其他的组交流的过程中 有什么超越自己责任的故事吗
+4.不同的意见
+5.如果你和你的同事有不同的工作方式, 你怎么适应他的?
+第二轮: 中国小哥
+有一个grid里面有blocker, 有一个机器人,给定一个位置, 这个机器人只能往右走,每走一步effort=1,这个机器人也可以上下走(可以跳跃,例如越过blocker,可以去同一列的任何位置) 不管跳多远effort都是1. 求抵达最后一列任意位置的最小effort
+0   x   0
+R.  x   0
+0.   0  x
+第三轮: 印度小哥
+Google有很多campus 然后你的小伙伴在不同的campus, 中午约饭, 约到cafe, 找到最早能集合的时间的时间(所有的小伙伴都到了那个cafe). input: List<campus>, List<cafe>, List<int[]>edges(例如 postionA-PostionC)代表A到C之间有路, 假设每一次移动的时间都是=1min
+第四轮: 中国小哥
+原题:两个时间点之间最短的时间差wu san jiu
+第五轮: 美国小哥
+有一堆p‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌roduct,每个product有个ID, 每个product他会有一堆offerID, 每个offerID对应的一个price
+1. add Offer(pID, offerID, price)
+2. remove Offer(offerID)
+3. queryClosetPrice(productId, price) return offerID
+
+1. 东南西北以及四个斜的 八个方向 比如1N2,2N3, 3S1就是说1在2的北边，2在3的北边。3在1的南边（也就是1在3的北边），代表着1->2, 2->3, 1->3，此时返回true，
+Answer: 找circle。如果有circlereturn false。没circle return true
+2. 建一个MyIter class。假设已经建好了trie(ABC → “he”, DE → “llo”), 。trie的leaf是一个string。MyIter class的constructor input是一个javaioreader和一个已经建好的Node root
+Answer:
+弄一个buildStr method，给你一个ABCDE这种String，返回在tire里面的leaf的string的concandinate → “Hello”
+Iter class还要写出hasNext和next method。这里可以把之前建好的string在class里面存下来，然后用一个index去做。
+follow up：因为给的Node的children 是个node array，如果换成hashmap会怎么样
+follow up：如果换成换hashMap的down side是什么
+follow up：在memory层面还能如何优化？
+3. 有个startRouter, 有个endRouter，有个RouterLocation Array，有每个Router可以connect的range。
+看是否可以从start connect to end
+union find。遍历每个pair，然后union在一起，然后find startRouter, find endRouter. 看他们的parent是否一样。一样就说明可以从start到end
+4. 第四题 Wrap text 有点像利口留疤但其实不是。
+Wrap text.
+A function which takes text and a width (int) and returns the number of lines that the text would take on the page.
+Example:
+text = "asdf asdf asdf asdf asdf asdf"
+width = 7
+answer: 6
+Example:
+text = "asdf asdf asdf asdf asdf asdf"
+width = 8
+answer: 6
+Example:
+text = "abcdabcdaabcdabcda \n\t           asdf asdf(1) asdf asdf(1) asdf(1)"
+width = 9
+answer: 5
+text = "asdf asdf asdff   asdf asdf asdf"
+width = 14
+asdf asdf
+asd       asdsadsd
+asdf asdf
+text = "a a a a    a a a a a a a a"
+width = 16
+answer = 2
+a a a a    a a
+a a a a a a
+text = "a          a        a a"
+width = 12
+s = s.trim();
+split("\\s+")
+After split
+for each single string, we need to use it and width to get how many lines it take
+*/
+我开始以为是利口留疤就按照那个思路去做了。这题corner case巨多，我现在也有点忘了具体要求，只记得一个特别长的String是可以跨越多行的，然后两个String中间如果有多个空格也不像留疤那样要缩减成1一个。当时很勉强做出来了。
+Follow up: Assume Part 1 getLines works perfectly.
+Write a new function:
+int getColumnTextSplit(String s, int width, int col);
+if width = 10, col = 5
+then we have two columns of width 5
+width = 10, col = 2
+two columns, width 2 and 8
+returns the split point in s
+text = "asdf1 asdf2 asdf3 asdf4 asdf5 asdf6"
+width = 12
+col = 6
+asdf1 | asdf4
+asdf2 | asdf5
+asdf3 | asdf6
+asdf1 | asdf2
+| asdf3
+| asdf4
+| asdf5
+| asdf6
+这里的col是指在哪一个col开始分。通过这个col可以得到两个width。然后根据这两个width，再从原String里面切一刀，然后左面String根据width1，右面String根据width2，得到两个lines number。目标是这两个lines number尽可能的靠近。
+没做出来，面试‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌官最后说了可以用Binary Search。估计就给我down level在这一轮了。
+Timeline:
+HR phonecall 2.16.2022
+Pho‍‍‍‍‍‌‍‌‌‌‍‍‌‌‌‌‍‍neScreen Skip
+Onsite 3.17.2022
+HR电话说positive 送HC 3.24
+通知downlevel. 3.30 只能说自己面的不行，HR人挺不错的，当时没有close因为我还在等其他offer。
+Case close 4.5 拿到了其他offer都是L4，这个就close了。下次再战
+
+3/28  三轮coding
+第一轮：散溜溜变种 要求从最底层子节点开始remove整个tree。 follow up： 1.移除顺序变为移除了某个叶子的子节点后立即移除该节点  2.如果给定了移除顺序 判断是否valid （valid定义是必须先移除该所有子节点再移除母节点）
+第二轮：尔流酒变种 比原题简单 给定字母顺序判断string valid与否。 follow up：分布式，多个机器怎么做这道题，机器之间transfer什么变量，如果字符串长度少于机器数量怎么办，runtime
+第三轮：Manager chain，给一些 {index， 员工邮箱，经理邮箱} 然后输入一个员工输出manage chain，follow up就是判断环
+3/29 一轮coding+ bq被鸽
+第四轮：string substitution。 输入 {last： li}，{first： zi}， {name：{last}{first} }  然后给定一个 “hi，{name}”就变成“hi， lizi”。follow up是想edge case 和写throw exception
+第五轮： 被取消了
+这里不得不提一下这里极差的体验，面试前一天半夜告诉我取消了还是另一个recruiter给我发的消息，然后重新安排面试的recruiter从来不回消息，一周以后突然来了一封安排在了4/6（也没问我的时间安排，直接就schedule了）
+4/6 一轮bq
+面试官上来就要给我面coding，我说我已经做了四轮了。然后就又和recruiter联系，十五分钟以后确定了面bq。印象深的是如果公司环境不好，同事相处不佳，你作为员工‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌怎么办+你作为director怎么办
+
+1. Job Scheduler, 拓扑排序解决， follow up： 如果跑在实际场景中会遇到什么corner case
+2. Friend Host,  Union Find 解决， follow up: 怎么优化 time complexity
+3. 耳零散肆
+4. Meeting room, 这个题目最近很高频，有个朋友比我先一天面试也遇到了这个题目， 也是地理出现的那个面经题， 先写了sweep line， 后用priority queue优化了
+5. BQ, 跟地理看到的差不多，leadship, conflict, how to help you teammate
+‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌
+第一轮，JS + 算法
+第一题
+// 假设给一个函数
+function fn(val) {
+console.log(val);
+}
+// 实现以下delay函数
+const withDelay = delay(fn);
+withDelay('abc123'); // 1秒后输出abc123
+复制代码
+当中提及了函数可变参数，箭头函数以及bind，apply和call
+第二题
+利扣贰佰变体+测试用例
+最后问了下前端项目如何选框架
+第二轮，JS + 算法
+<!-- 实现以下table -->
+<table>
+<tr>
+<td>1</td><td>6</td><td>7</td>
+</tr>
+<tr>
+<td>2</td><td>5</td><td>8</td>
+</tr>
+<tr>
+<td>3</td><td>4</td><td>9</td>
+</tr>
+</table>
+复制代码
+问了测试用例
+第三轮，算法
+领扣散酒舞，拿硬币变体，求先手可以拿到的最大值
+第四轮，JS + 设计
+第一题
+// 给一个异步方法
+function f(data, successCb, errorCb) {
+// do something
+}
+// 实现一个方法
+function retry(fn, n, data, successCb, errorCb){
+// fn如果失败最多重试n次
+}
+复制代码
+第二题
+设计google map前端
+第五轮，JS
+第一题
+// 大家来找茬。什么原因？怎么改正？
+for (var i = 0; i <= 5; i++) {
+setTimeout(function() {
+console.log(i);
+}, 1000);
+}
+复制代码
+第二题
+一台machine上有n个文件，每个文件包含n个数
+比如machine 1:
+file1：[2,3]
+file2：[5,4, 9]
+file3：[100, 87, 21]
+给一个函数getFileSum(file, machineId)，实现求所有文件中数字总和
+followup1: 如果一次getFileSum的call时间比较长怎么处理
+followup2: 如果一次machine比较多怎么处理
+[/‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌hide]

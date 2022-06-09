@@ -1,0 +1,112 @@
+https://bigfrontend.dev/user/8QZ3VMS?tab=lists
+电面：
+两道原题 BFE 18 improve a function, 16 Event emitter
+VO：
+Coding：第一题是一个encrypted message需要initial key才能decrypt，decrypted后会给下一个key来解密下一条message. 因为找不到原题，大概回忆了一下，只能动Decryption class其他不能动
+const decryption = new Decryption(initialKey)
+function decryptAndGetNextKey(encrypted, key, callback) {
+    let [nextKey, decryptedMessage] = blackBoxDecryptionFunction (encrypted, key)
+    callback({
+        nextKey,
+        message: decryptedMessage
+    })
+}
+decryption.decrypt(encrypted1, message => console.log(message))
+decryption.decrypt(encrypted2, message => console.log(message))
+复制代码
+第二题 implement classNames() BFE 125
+2. System Design: Design a typehead， 经典题了
+3. BFE 17 Dom store
+    使用js function 实现 animation(element, duration, distance)，在一段时间内让一个元素向‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌右移动一定的距离。我一开始说用transition，他说不要用。那思路就是一秒60帧，然后每帧移动多少距离，每帧是多少毫秒，最后setInterval改element style的right属性
+4. BQ基本就是聊聊之前做了啥还有一些很常见的BQ问题比如deadline啊同事关系一类的
+1. event emitter
+2. clearAllTimeout
+3. debounce
+都是地里高频题，BFE上有题目和代码。因为都是楼主写熟的了题，follow up也打上了，当天就move to next round了。
+【3rd round】vo
+1. memorization
+2. curry
+
+店面：animateRight + bfe 19 find corresponding node in two identical DOM tree
+昂赛：
+1: debounce， throttle，memo
+2: excludeItems，virtual dom II
+3: design typehead
+4: BQ
+
+2轮coding + 1轮bq + 1轮系统设计
+1 coding，DOM traversal + array flatten
+2 system design，autocomplete 注重前端性能优化，api接口和前端工程化，无需service和db的implementation
+3 coding，event emitter + exc‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌lude map
+4 bq，有一个list 10+个问题
+没有任何算法
+coding全是js，看glassdoor有惊喜
+希望能帮到地里小伙伴
+
+1. 面试小哥问了罗马数字的双向转换，～30分钟写好后就开始聊小哥在脸书这几年的经历。
+2. 面试hiring manager，这个面试经验挺差的，我不是很喜欢这个HM，经常打断我说话。就问了很多我已经做的项目和自己私底下做的项目，还问了和之前的经理如何沟通一类的事情。
+3. 面试小哥问了一个设计题，写一个general search selector，从前端到后端。这个我自己的原本的工作中就做过，所以很得心应手。这一轮的面试很开心，小哥问的东西也都是很到点，是我喜欢的前端的面经。
+4. 面试小哥问了一道dom tree的问题，给一个网页，上面有很多的文字节点，用户从之中的一个词开始highlight，停下后复制，写一个function返回他复制的文字。用dfs做，很快就做完了。小哥有些nerdy不知道还要再问什么就两个人尬聊。=。=
+5. 面试两个人，一个人reverse shadow另一个，那个shadower是脸书flow队的，恰巧我现在的队在用flow，就在写完代码后的20分钟里主要跟shadower建议一些flow的支持。。。（真的是不好用。。。）shadowee问的题是requestAnimationFrame的题，又问了如何优化前端，25分钟就聊完了，很轻松。
+后来recruiter说面试feedbac‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌k很好，所以面完的第二就回信说要电话谈一下搬家的事情，当时我还傻傻的想着如果明天（和🐶安排了27号vo）在🐶家那儿跪了，去脸书家再写两年前端也挺好的。结果没想到recruiter上来第一句话：我有好消息也有坏消息。。我当时心就凉了，这简直就是和三年前的回复一毛一样。也怪我当时把面试推太晚了，可能位置已经被别人占了。
+
+1:
+const data = [
+  { type: 'phone', color: 'gold', name: 'iphone' },
+  { type: 'phone', color: 'blue', name: 'iphone' },
+  { type: 'tv', color: 'blue', name: 'samsung' }];
+const excludes = [{ k: 'color', v: 'gold' }, { k: 'type', v: 'tv' }]
+// Print filtered data
+2:
+give two dom tree, the structure of two tree are same.
+give one node in tree one, find it's matching node in tree two.
+3.
+give distance, time as parameter, wirte a function can do animation that move a box from left side to right side.
+4. give intervals, for example, [0,3, 'b'], 0 is start position (includesive), 3 is end position <excludesive>, and b is tag name
+so use intervals as input, [0,3, 'b'], [2, 4,'i'], and another string as input "abc",
+the output will calulate overlaying and insert tage to string.  
+abcedfgh -‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌> <b>ab</b> <b><i>c</i></b> <i>e</i>
+5
+desing a auto complete search box, like facebook level of data.
+
+#BFE-125
+#BFE-28
+#BFE-17
+#BF‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌E-101
+#BFE-161
+GetTextBetweenNodes
+
+1. Identical DOM (followup: 使用pa‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌rentNode和不使用的时间复杂度)
+2. Virtual DOM II (followup: Virtual DOM III)
+
+Flatten Array flatten an array recursively and iteratively in Javascript
+[4, [3, 6, [9, 1, 9, [5, 1]]], 8] => [4, 3, 6, 9, 1, 9, 5, 1, 8]
+Solutions:
+以下内容需要积分高于 150 您已经可以浏览
+// recursive
+function flatten(array) {
+    return array.reduce((elem, acc) => {
+      return elem.concat(Array.isArray(acc) ? flatten(acc) : acc);
+    }, []);
+}
+// iterative
+function flatten(arr) {
+    var array = [];
+    while(arr.length) {
+        var value = arr.shift();
+        if(Array.isArray(value)) {
+        // this line preserve the order
+‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌        arr = value.concat(arr);
+        } else {
+        array.push(value);
+        }
+    }
+    return array;
+}
+How to mimic stack and queue in javascript
+
+Given a grid of characters output a decoded message. The message for the following would be IROCKA. (diagonally down right and diagonally up right if you can't go further .. you continue doing this)
+
+I B C A L K A
+D R F C A E A
+G H O E L A D

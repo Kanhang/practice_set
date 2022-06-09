@@ -72,6 +72,7 @@ You can use the following to help you:
 document.body: returns the root body node
 element.children: returns the immediate children of any node
 Map<cssProperty: string, cssValue: string> getComputedStyle(element): returns an object containing the styles applied to an element where each key is a style property
+    compStyles.getPropertyValue('font-size')
 and the value is the CSS value, inherited values are included
 assume querySelectorAll cannot be used in the implementation
 

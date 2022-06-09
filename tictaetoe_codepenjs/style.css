@@ -1,0 +1,18 @@
+.board{
+	display:flex;
+	flex-wrap: wrap;
+	width:31rem;
+	height:31rem;
+	border: 1px black solid;
+	
+}
+.square{
+	padding:0.1rem;
+	width:10rem;
+	height:10rem;
+		border: 1px black solid;
+	font-size:5rem;
+	display:flex;
+	justify-content:center;
+	line-height:10rem;
+}

@@ -16,7 +16,7 @@
     }
 
     const memorized = memo(asyncAdd);
-    
+    console.log(memorized);
     function memo(fn){
         const m = new Map();
         const key = Array.from(arguments).slice(0,2).join(',');
@@ -57,21 +57,21 @@
   // directly run work
 
 
-console.log(serial());
-async function serial(){
-  await memorized(1,2)
-  await memorized(1,2)
-}
+// console.log(serial());
+// async function serial(){
+//   await memorized(1,2)
+//   await memorized(1,2)
+// }
 
-function sleep() {
-    return new Promise(resolve => {
-      setTimeout(resolve, 1000);
-    });
-  }
+// function sleep() {
+//     return new Promise(resolve => {
+//       setTimeout(resolve, 1000);
+//     });
+//   }
   
-  async function serial() {
+//   async function serial() {
 
-    await sleep();
-    await sleep();
-  }
+//     await sleep();
+//     await sleep();
+//   }
   

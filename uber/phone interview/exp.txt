@@ -71,3 +71,7 @@ The main interviewer posts on the reddit javascript channel under a screen name 
 Interviewer looked quite bored from the start, as if he knew this probably wouldn't work out. He's also very purposefully vague in his instructions, and so you have to clarify. One tip is, when you're asked to talk about yourself at the very beginning, only say two to three sentences max. I tried to speak slowly and clearly and give some detail about my current role. Naw fam. Skip dat. You will need all the time possible to code. Interviewer is not good at hiding the fact that he wasn't even listening and barely cared what I said for the intro. You could probably say, "I love linux penguin let's start coding" and that will work just as well.
 
 Once again, front end folks, keep posting what you encounter please.
+
+
+
+

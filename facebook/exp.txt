@@ -1,0 +1,161 @@
+1. v dom I render，follow up是加上functional component
+2. event emitter，问了一些call apply的区别，需要不需要传this，error han‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌dling怎么做之类的
+
+identical dom tree -》 用iterative dfs做出来，但是follow up 面试官让用dom api做，我直接懵逼
+render(bfs里virtual dom 1) -》f‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ollow up virtual dom 2
+
+1. Improve a function (followup: 时间复杂度)
+2. AnimateRight (问了巨细的八股，包括setInterval和requestAnimationFrame区别等)
+VO：
+1. Ide‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ntical DOM (followup: 使用parentNode和不使用的时间复杂度)
+2. Virtual DOM II (followup: Virtual DOM III)
+1. 罗马转整数
+2.clearAllTimeout();
+var oldTimeout = window.setTimeout；
+var allTImeoutList = [];
+window.setTimeout = function(callback, delay){
+    var id = oldTimeout(callback,delay);
+    allTimeoutList.push(id);
+    return id;
+}
+function clearAllTimeout(){
+    allTimeoutList.map(e=>{clearTimeout(e);})
+}
+
+1. DOMStore 这个BFE上有直接搜
+2. clearAllTimeout 这个前面有面经老哥写过答案我直接按那个回，
+有个小缺陷是如果在clearAllTimeout之前clearTimeout一下
+,有id的那个数组没法更新，我解决方案就是也修改一下clearTimeout让‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌它能删了数组中的id。
+面试官觉得ok
+
+第一道是万年老题 emitter，写完之后对方比较满意，让我口述了一波test case
+
+第二题是 animationEl ，传入 (element, duration, distance)
+answers for this
+https://dev.to/coderbyte/a-javascript-interview-question-asked-at-facebook-27po/comments
+给定一个element，需要手写animation让element在duration的时间里向右移动一定距离
+这道题之前有看到过面经但是找不到答案，最后用requestAnimationFrame写的,
+但面试官不是很满意，问了很多fo‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌llow up question，比如为什么要写这种方式，还有哪种方式可以实现，它们之间的trade off是什么等等
+店面：animateRight + bfe 19 find corresponding node in two identical DOM tree
+昂赛：
+1: debounce， throttle，memo
+2: excludeItems，virtual dom II
+3: design typehead
+4: BQ
+面试题 BFE的140题。题目不难。
+
+1. flatten array, follow up是怎么用非递归完成，我答的是用 Array.prototype.splice，具体可以直接Google
+2. 给你两个object然后要根据第二个排除第一个，具体看glassdoor或者地里
+3. emitter
+4. 如何批量移除所有setInterval 把原来的函数替换掉套一层自己的就完了
+5. 在两个不用的dom树里面找相同‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌的node 具体看glassdoor有题目源代码
+
+用js写 event emitter， 回答也感觉良好
+
+我们的任务是去构写一个emitter
+1. emitter 包含了 三个功能： subscription，emit，release
+2. 我们可以通过 subscription 把一个EventName 和 这个Event 对应的callback function 整合成一个object 返回
+eg: const sub = emitter.subscription('EventName', callback);
+3. 我们可以通过emit去触发某个Event根据给予的EventName，并且可以在EventName后面传入复数个peremter 给Event对应的callback 使用
+4. 我们可以通过每个返回的 event object 里面的 release function 去release 刚才做过的subscription。
+详细例子：
+const sub = emitter.subscription('EventName', callback);
+const sub1 = emitter.subscription('EventName', callback);
+const sub2 = emitter.subscription('EventName', callback2);
+const sub3 = emitter.subscription('EventName2', callback3);
+emitter.emit('EventName', foo, bar);
+sub.release();
+从例子里，我follow出了如下额外要求：
+1. 可以给同一个EventName 添加复数个callback，并且可以添加一摸一样的callback复数次：
+const sub = emitter.subscription('EventName', callback);
+const sub1 = emitter.subscription('EventName', callback);
+const sub2 = emitter.subscription('EventName', callback2);
+2. 当使用emit去触发某个event的时候，这个event的所有callback 会全部触发：
+emitter.emit('EventName', foo, bar);
+因为上面的subscription 如下callbacks会这样被触发
+callback(foo, bar)
+callback(foo, bar)
+callback2(foo, bar)
+3. 当使用返回的object里面的release的时候，你只会release掉这个object 当初被subscription 返回的时候里面assign的那个callback （Tips：如果有同样的复数个callback，你release掉哪个都是一样的）：
+sub.release(); //某一个callback 会被release掉
+sub2.release(); //callback2会被 release掉
+sub1.release(): //最后一个callback会被release掉
+我回忆了一下，这大概是我的答案：
+    var emitter = function() {
+        this.callback_list = {};
+    };
+    emitter.prototype.subscription = function(eventName, callback) {
+        if (!this.callback_list[eventName]) {
+            this.callback_list[eventName] = [];
+        }
+        this.callback_list[eventName].push(callback);
+        var sub_obj = {};
+        sub_obj.prototype.release = function() {
+            var callback_index = this.callback_list[eventName].indexOf(callback);
+            this.callback_list[eventName].splice(callback_index, 0);
+        };
+        return sub_obj;
+    };
+    emitter.prototype.emit = function() {
+        var eventName = arguments[0];
+        var attriList = [];
+        for (var i = 1; i < arguments.length; i++) {
+            attriList.push(arguments);
+        }
+        var eventCallbackList = this.callback_list[eventName];
+        for (var j = 0; j < this.callback_list[eventName]; j++) {
+            eventCallbackList[j].apply(undefined, attriList);
+        }
+    };
+面试的难点还是在于审题和讨论部分，那些说的很清楚的额外要求，一开始是完全没有的，面试官也没有准备说‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌，是我自己提出疑问，他再加深解释，才一步一步清晰这道题的全部面貌。
+这道题我做了 40分钟的样子，主体细节都是自己写的，前期花了10分钟左右审题，和讨论那些额外的要求，然后开始设计，写出来以后有bug，面试官提出异议，我看了之后发现秒改，如此这样大概3次。最后跪了。面试一共45分钟。做得不好的地方，与大家共勉。
+
+
+刚挂电话的新鲜面筋。。一个有口音的南美小哥？感觉不是很开心的样子。。。第一题是万年不变 event emitter，前面写的都挺顺的，后面 subscribe 那个 function要返回一个object 里面contain release function然后就开始懵逼了。。。但是最后在小哥各种提示示范擦边代码下挤出来了。。哎对js的熟悉程度真的还差点
+第二题detect overlapping of two interval。。三四行代码写出来感觉智商被鄙视了一样。。。
+
+
+遇到了万年不变的老题，emitter
+接着还有一题，估计是这里挂了吧，我用了两个遍历来做.......
+说是给一串 [ {type: phone, color: gold, name: iphone} , {type: phone, color: blue, name: iphone}, {type: tv, color: blue, name: samsung}]
+再给一串 excludes [ {k:color, v:gold}, {type, v:tv}]
+让根据excludes里面的参数，把input里面符合条件的所有item剔‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌除掉， 然后返回不满足条件的
+：https://www.glassdoor.com/Interview/Given-input-could-be-potentially-more-than-3-keys-in-the-object-above-items-color-red-type-tv-age-18-QTN_2372314.htm
+实现一个Debounce function， follow up是实现throttle function.
+bq就是常规bq
+系统设计面了设计 pinterst，重点看 那个css布局模式
+coding 第一轮是问了四道题，一个throttle一个debounce,还有一个类似memorization的那种，
+大概是给一个func，里面可能是 add(a, b) return a + b
+memorize(4,5) 会记录结果9，下次再传入4,5的时候直接返回结果9，不会再call function add来算，用一个hashmap记录就行，
+我写完这道题之后还有十分钟的时间，面试官又问了个followup question说如果传入参数是数组怎么办。
+又改写了一个传入数组的版本
+第二轮 两道题 第一道是脸家的常规老题 DOMstore，面试官问了很多followup question，还问了big o
+第二道是写 jest unit test里的 it函数，实现 it ('assertion', () => { expect(a).tobe(b)})
+大概知道内部写法写出来就行
+
+1:
+const data = [
+  { type: 'phone', color: 'gold', name: 'iphone' },
+  { type: 'phone', color: 'blue', name: 'iphone' },
+  { type: 'tv', color: 'blue', name: 'samsung' }];
+const excludes = [{ k: 'color', v: 'gold' }, { k: 'type', v: 'tv' }]
+// Print filtered data
+2:
+give two dom tree, the structure of two tree are same.
+give one node in tree one, find it's matching node in tree two.
+3.
+give distance, time as parameter, wirte a function can do animation that move a box from left side to right side.
+4. give intervals, for example, [0,3, 'b'], 0 is start position (includesive), 3 is end position <excludesive>, and b is tag name
+so use intervals as input, [0,3, 'b'], [2, 4,'i'], and another string as input "abc",
+the output will calulate overlaying and insert tage to string.  
+abcedfgh -> <b>ab</b> <b><i>c</i></b> <i>c</i>
+5
+desing a au‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌to complete search box, like facebook level of data.
+
+ const oldCleartimeout = clearTimeout  window.clearTimeout = (id) => {    timeouts.delete(id);    oldCleartimeout(id); }; 
+ const timer = setTimeout(null, 0);  clearAllTimeout = () => {   for (i = timer; timer >=0; timer--) {      clearTimeout(timer);   } }; 
+
+ 1. two idential DOM trees
+Given 2 identical DOM trees (but not equal) and one element of the first DOM tree, how would you find this element in the second DOM tree?  
+2. exclude key
+Given input: // could be potentially more than 3 keys in  the object above items = [ {color: 'red', type: 'tv', age: 18}, {color: 'silver', type: 'phone', age: 20} ... ] excludes = [ {k: 'color', v: 'silver'}, {k: 'type', v: 'tv'}, .... ] function excludeItems(items, excludes) { excludes.forEach(pair => { items = items.filter(item => item[pair.k] === item[pair.v]); }); return items; } 1. Describe what this function is doing... 2. What is wrong with that function ? 3. How would you optimize it ?

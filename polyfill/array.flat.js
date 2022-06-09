@@ -27,3 +27,4 @@ Array.prototype.newFlat = function(depth){
    },[]):
     this
     };
+

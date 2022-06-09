@@ -1,5 +1,5 @@
 
-
+//write a promise
 class myPromise{
 
 constructor( fn ){
@@ -35,3 +35,5 @@ onResolve(){
 
 }
 }
+
+

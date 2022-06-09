@@ -1,3 +1,12 @@
+199 239 
+number of islands ，follow up 如果 island 有桥，高频
+follow up：如果island之间有桥（假如用“B”表示），如何找到island A到 island B之间的最短路（即通过的桥最少）。问了下时间、空间复杂度。
+讨论了下是否需要用Priority Queue的优劣势。
+tic tac toe验证
+计算股票 的平均值 ，给股票日价和 time window；
+
+
+
 1. Bar raiser 有个烙印shadow BQ
 2. Coding TikTakToe
 3. HM BQ culture
@@ -49,11 +58,11 @@ follow up：如果island之间有桥（假如用“B”表示），如何找到i
 后来发现这个写的代码一直都没有被锁，估计没有算在里面。
 
 贫农一个 跪求大米 加分不扣分的
-onsite 5 轮
+onsite 5 轮.
 2 轮算法，2 轮系统，一轮 behavior
 系统设计第一轮是设计一个 sudoku。这个 sudoku 需要用户输入数字，然后每一次输入的时候得算是否有违反规则。如果有违反规则，那个 sudoku 的 cell 得用红色显示，要不然不显示。当用户完成所有的 cell 的时候，输出用户赢了。
 这个 check 不太难，关键是要怎么样写的比较 extendable 和 decoupled。建议用 MVC / Observable 来做。这个比较微观的设计，测得是你能不能写好的 class diagram 和 routine。
-系统设计第二轮是设计一个音乐播放器 (spotify)。需要有搜索功能，艺术家主页，播放，收藏音乐，创造 playlist 等功能。这个更多的是你自己的发挥。后端前端都需要设计。例如后端需要有什么 endpoint，每个 endpoint 返回的是什么值。这个相比第一个，更多是宏观的设计。 当你的 interviewer 除了 ‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌specification 以外其他的都不问，那你就过了。
+系统设计第二轮是设计一个音乐播放器 (spotify)。需要有搜索功能都不问，，艺术家主页，播放，收藏音乐，创造 playlist 等功能。这个更多的是你自己的发挥。后端前端都需要设计。例如后端需要有什么 endpoint，每个 endpoint 返回的是什么值。这个相比第一个，更多是宏观的设计。 当你的 interviewer 除了 ‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌specification 以外其他的那你就过了。
 算法面的忘记了。大概是 LC medium - hard 难度。graph 肯定有，DP 忘记有没有了。。
 Behavior 面的就很亚麻。问的就是一些，如果你和同事吵架了该怎么办。还有一点就是他们会问关于无人车的事情。最好做一些关于无人车科普的知识，例如无人车是怎么工作的之类的。
 
@@ -175,3 +184,7 @@ NewData(13, “c”, 5)
 
 top3(13) => it should return aggregated top 3 keys from time 4 to time 13 like
 [(‘d’, 12), (‘e’, 11), (‘c’, 6)]
+
+
+
+

@@ -1,0 +1,107 @@
+面的前端写一个 retry async call 的callback function 具体如下
+以下内容需要积分高于 120 您已经可以浏览
+doStuff(() => console.log('success'), () => console.log('error))
+Implement Retry:
+const retryDoStuff = retry(doStuff, 10) // fail after 10 retry
+retryDoStuff(() => console.log('success'), () => console.log('success'))
+答案：/retry-async ... h-callback-promise/
+我很SB的写了个FOR LOOP哈哈 被鄙视了
+
+一个白人小哥，一上来互相寒暄，然后直接问我想写啥题，FE相关的题，还是正常的(leetcode), 我说FE吧。
+Q1：
+   <div id='1'>
+            <span id = '2'>Hello </span>
+            <span id = '3'>World </span>
+  </div>
+  Given the root element of a website and a string id, create a function to return element by id, the element is unique. you can't use built-in function getElementById().  
+         
+Q2:
+      类似Q1
+   <div class='1'>
+            <span class= '2'>
+                       Hello
+                    <h1 class = '3'>Giao</h1>           
+           </span>
+            <span class= '3'>World </span>
+  </div>
+    Given the root element of a website and a string class, create a function to return elements by class. There could be more than one no‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌des that have class = '3', you can't use built-in function getElementByClass();
+Q1要return一个node, Q2要return一个array, 都不难，就是最基本的dom tree traversal。
+求米求人品～
+
+第一题给一个array，里面只有integer，保证even number在odd number前面，比如 [2, 4, 6, 1, 3] 求输出第一个odd number的index
+这题用类似binary search 做了，但是我嘴贱，多讲了几个test case，做完之后19分钟过去了。
+第二题是给一个matrix，输出k个最小的数。matrix 每行每列都递增。matrix是一个square
+比如
+0 1 3 3
+1 2 4 6
+1 3 4 6
+2 3 5 7
+我说最intuitive的方法就是把每一行合并起来，变成一个长的sort的array， 然后输出前k的。
+小哥问time complexity。这时候后悔没做leetcode 第4 了，掰了半天，说是n*n，n是row的长度。
+小哥好像不管我算的对不对，就问我有没有更好的方法。我稍微想了想，可以像bread first search 一样，
+从左上角开始，把右边和下边的number 放到priority queue里面，每次pop一个最小的出来。
+我按照bread first search 写完了，多用了一个指针variable，表示当前在处理的哪个number。
+小哥提醒一下不用这个variable，我就改成处理最新pop出来的那个数。
+最后本来想口头run几个例子试试看，小哥说没时间了，看了看表，45 分钟到了，
+小哥就问我分析一下space complexi‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ty。我想priority queue最多有可能包括最右边的一列和最下面的一行，
+所以就是2n （n 是一边的长度），在加上输出的结果k，是O(n + k)。小哥意味深长地说“interesting” 
+（啥？啥意思？）后来想想，space complexity就是O(k)吧。
+
+实现Promise.all
+上周四，前段店面。电话交流， 谷歌文档上敲代码， 只有highlight。
+简短寒暄，直接上题。一共两道js。
+（1）实现数组的遍历next（）方法。不赘述。
+（2）实现异步请求队列。请求要按照进队顺序被执行, 一个请求完成后才能执行下一个。
+JS一定要熟闭包，上面两题都用的闭包实现变量记忆。
+希望有帮助。
+有问‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌题请回复。
+
+投的sde但是survey里面field填的是frontend
+上来就说问个front end相关的 怎么写一个计算diff两个dom tree的算法
+clarify了一下input， output， node可以有很多个children，node val就string就好了，只考虑node被remove 和 add的情况, output要返回改变的node， children nodes有顺序，我一开始说用list来存children nodes然后就说可以 bfs去比较每个node
+然后问题就简化到 diff 两个node的children. 面试官给的例子就是
+A
+B C D
+A
+C D B
+BCD -> CDB这样的变化 代表b被remove了一次 然后再add 了一次 output就是要记录这些变化的node
+我后来自己想的例子
+AB -> ACB 这样应该算是加了一个C 吧？如果是算作remove b 再添加cb就太简单了一些，但我当时没有去想这种例子问面试官
+中间面试官有提说换成linked list来存这些‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌children node然后想算法就等于又简化成 diff两个linked list的node变化了
+我算法太菜了没想出来，move on了。求大神给个solution，顺便求加米。
+新年快乐！
+新鲜狗家挂经， 电面约了之后一直工作和生活上都在各种出事所以没怎么准备，难得还是个人巨nice的做angular的小哥，可惜题虽然准备面经是看到了没做，技不如人，一年后再见了
+题是这道
+https://www.1point3acres.com/bbs/thread-761353-1-1.html
+经典最后一刻提示要用queue别搁那recursive了，然后赶紧写了bfs，但是最后还是会有些bug，卒
+
+第三轮前端：
+实现一个function，要求 60秒内 发两个async request都能得到结果。如果有request失败了，就retry，直到有结果返回。如果到了60秒还没有成功得到两个request的结果，就throw error
+小哥没给input output，说让我自己设计这个function，应该是什么样。。。 需求澄清用了很久，最后没时间写完。
+类似retry，但有时间限制，并且是两个request。
+后来想了一下，可以考虑 先实现retry，并结合promise.all 和 promise.race实现。
+
+給定一個圖，輸入形式是一群邊，輸出指定起點A到終點B的最短路徑
+Input:
+[[1, 2], [2, 3]], A = 1, B = 3
+Output:
+2
+Follow-up: 若開車從A到B，油箱一開始有V單位油，每走一個邊就用掉一單位，用完就不能再前進，在這之前有經過加油站的話可以把油加滿，一樣求最短‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌路徑
+用BFS解即可
+
+N年前刚找第一份工作的时候，朋友内推过，估计那时候被嫌弃，直到有两三年经验后，简历才在DB里被捞出来。
+由于一直做前端为主，所以面试是按前端方向流程。猎头initial call里面说，电面是DS / Algorithm，  所以， 准备的时候就刷LC为主。
+面试的时候，由于有点技术问题，比原计划晚了一点开始。所以，双方各一分钟简介后，面试官直接就把题目通过Hangout直接丢过来。我看到题目后，心里惊愕了三十秒，因为不是 DS / Algor, 而是前端相关的。
+面试官给了一个简单计算机图片，上面有数字键，加减号，等于号，Clear键，以及一个显示器。他要我写出所有的helper function, 每按一个键，都要将计算的结果显示出来， 如
+1） 123 =》 123
+2） 123 + =》 123
+3） 123 + 1  =》1
+4） 123‍‍‍‌‌‌‍‌‍‍‍‍‌‍‌‌‌‌‌ + 1 -  =》 124
+5） 123 + 1 - 1 =》 1
+6） 123 + 1 - 12 =》12
+。。。
+由于没有小数点和负数，所以题目不算太难。不过题型有点出人意外，提醒大家以后一定跟猎头确定面试类型，做好准备。
+地里前端题目不多，就不加大米限制了，求加米，还有多些人分享前端面经！
+LC 原题，二叉树每个节点带非负值，求一个路径使得路径上所有值总和为所有路径中最大
+followup1: 可能为负
+followup2: 打印答案的路径，但要保持节点顺序，例如 a; a.left = b; a.right = c，路径是 'b, a, c' or 'c, a, b' 都行

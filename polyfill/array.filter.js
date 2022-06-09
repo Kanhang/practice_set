@@ -1,7 +1,8 @@
-import { useCallback } from "react";
+
 //filter takes (value, index, array{this})
 // filter will push the value into the
 // result that satisfies the callback function.
+
 Array.prototype.newFilter = function(callback){
     const result = [];
     for( let i = 0; i< this.length; i++){

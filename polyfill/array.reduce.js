@@ -34,3 +34,6 @@ console.log(double)
 //   return accum;
 // }, {})
 // console.log(queryObject);
+
+
+
